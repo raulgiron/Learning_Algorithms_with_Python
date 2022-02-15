@@ -30,8 +30,20 @@ def alternative_recursive_binary_search(data_list: list, target: int, start: int
             return alternative_recursive_binary_search(data_list, target, mid + 1, end)
 
 
+def sum_values(data_list):
+    if len(data_list) == 1:
+        return data_list[0]
+    else:
+        return data_list[0] + sum_values(data_list[1:])
+
+
 def verify(result):
     print("Target found: ", result)
+
+
+def sum_verify(result):
+        print("The sum is: ", result)
+
 
 
 empty_list = []
@@ -44,3 +56,5 @@ result = alternative_recursive_binary_search(numbers_list, 12)
 verify(result)
 result = alternative_recursive_binary_search(numbers_list, 6)
 verify(result)
+result = sum_values(numbers_list)
+sum_verify(result)
