@@ -116,6 +116,19 @@ class LinkedList:
 
         return current
 
+    def node_at_index(self, index):
+        if index == 0:
+            return self.head
+        else:
+            current = self.head
+            position = 0
+
+            while position < index:
+                current = current.next_node
+                position += 1
+
+            return current
+
     def __repr__(self):
         """
         Return a string representation of the list object.
@@ -129,7 +142,7 @@ class LinkedList:
             if current is self.head:
                 nodes.append("[Head: %s]" % current.data)
             elif current.next_node is None:
-                nodes.append("[Tail: %s}" % current.data)
+                nodes.append("[Tail: %s]" % current.data)
             else:
                 nodes.append("[%s]" % current.data)
 
@@ -137,12 +150,13 @@ class LinkedList:
         return ' -> '.join(nodes)
 
 
-linked_list = LinkedList()
-linked_list.add(5)
-linked_list.add(4)
-linked_list.add(3)
-linked_list.add(2)
-linked_list.add(1)
-print(linked_list)
-print(linked_list.search(5))
-print(linked_list.search(50))
+if __name__ == "__main__":
+    linked_list = LinkedList()
+    linked_list.add(5)
+    linked_list.add(4)
+    linked_list.add(3)
+    linked_list.add(2)
+    linked_list.add(1)
+    print(linked_list)
+    print(linked_list.search(5))
+    print(linked_list.search(50))
